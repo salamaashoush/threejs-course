@@ -16,29 +16,28 @@ const camera = new PerspectiveCamera(
   0.1,
   1000
 );
-
+camera.position.z = 5;
+camera.aspect = SIZES.width / SIZES.height;
 const renderer = new WebGLRenderer({ canvas: CANVAS });
 renderer.setSize(SIZES.width, SIZES.height);
 
 const geometry = new BoxGeometry();
-const material = new MeshBasicMaterial({ color: "red" });
+const material = new MeshBasicMaterial({ color: "green" });
 
 const cube = new Mesh(geometry, material);
+
 // Explain position, scale, rotation
-cube.position.x = 0.5;
-// cube.position.y = 1;
-// cube.scale.x = 5;
 
 scene.add(cube);
 
-camera.updateProjectionMatrix();
+// camera.updateProjectionMatrix();
 
 // Try animation with clock
 
 const clock = new Clock();
 function animate() {
-  // const time = clock.getElapsedTime();
-  // cube.rotation.x += 0.1 * time;
+  const time = clock.getElapsedTime();
+  cube.rotation.x = 0.1 * time;
 
   renderer.render(scene, camera);
   requestAnimationFrame(animate);

@@ -22,7 +22,7 @@ const fontLoader = new FontLoader();
 fontLoader.load("/fonts/helvetiker_regular.typeface.json", (font) => {
   const material = new MeshMatcapMaterial({ matcap: matcapTexture });
 
-  const textGeometry = new TextBufferGeometry("Hello Quin", {
+  const textGeometry = new TextBufferGeometry("Hello Frontmen", {
     font: font,
     size: 0.5,
     height: 0.2,

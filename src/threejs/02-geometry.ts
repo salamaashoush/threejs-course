@@ -29,7 +29,7 @@ camera.updateProjectionMatrix();
 const renderer = new WebGLRenderer({ canvas: CANVAS });
 renderer.setSize(SIZES.width, SIZES.height);
 
-const material = new MeshBasicMaterial({ wireframe: true });
+const material = new MeshBasicMaterial({ color: "blue" });
 
 // const g = new BufferGeometry()
 

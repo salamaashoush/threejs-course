@@ -33,7 +33,7 @@ const scene = new Scene();
 
 const textureLoader = new TextureLoader();
 // const colorTexture = textureLoader.load("/textures/checkerboard-1024x1024.png");
-const colorTexture = textureLoader.load("/textures/door/color.jpg");
+const colorTexture = textureLoader.load("/textures/checkerboard-8x8.png");
 // const colorTexture = textureLoader.load(
 //   "/textures/minecraft.png",
 //   () => {
@@ -46,18 +46,18 @@ const colorTexture = textureLoader.load("/textures/door/color.jpg");
 //     console.log("textureLoader: loading error");
 //   }
 // );
-// colorTexture.wrapS = RepeatWrapping;
-// colorTexture.wrapT = RepeatWrapping;
-// colorTexture.repeat.x = 2;
-// colorTexture.repeat.y = 3;
+colorTexture.wrapS = RepeatWrapping;
+colorTexture.wrapT = RepeatWrapping;
+colorTexture.repeat.x = 2;
+colorTexture.repeat.y = 3;
 // colorTexture.offset.x = 0.5;
 // colorTexture.offset.y = 0.5;
 // colorTexture.rotation = Math.PI * 0.25;
 // colorTexture.center.x = 0.5;
 // colorTexture.center.y = 0.5;
 // colorTexture.generateMipmaps = false;
-// // colorTexture.minFilter = NearestFilter;
-// colorTexture.magFilter = NearestFilter;
+colorTexture.minFilter = NearestFilter;
+colorTexture.magFilter = NearestFilter;
 const pointLight = new PointLight(0xff9000, 1);
 // You can move it like any object
 pointLight.position.set(1, -0.5, 1);
@@ -70,15 +70,7 @@ const metalnessTexture = textureLoader.load("/textures/door/metalness.jpg");
 const roughnessTexture = textureLoader.load("/textures/door/roughness.jpg");
 
 const geometry = new BoxGeometry(1, 1, 1);
-const material = new MeshStandardMaterial({
-  // wireframe: true,
-  map: colorTexture,
-  alphaMap: alphaTexture,
-  normalMap: normalTexture,
-  metalnessMap: metalnessTexture,
-  roughnessMap: roughnessTexture,
-  // displacementMap: heightTexture,
-});
+const material = new MeshStandardMaterial({ map: colorTexture });
 // material.displacementScale = 0.05;
 // material.transparent = true;
 const mesh = new Mesh(geometry, material);
